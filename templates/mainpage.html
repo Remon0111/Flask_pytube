@@ -3,9 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/style.css"%}">
     <title>Flask_YouTubedownloader</title>
 </head>
-<body>
-    <h1>Flask_YouTubedownloader</h1>
+<body bgcolor="#ff6d6d">
+    <div class="titleText">YouTube downloader</div>
+    <div class="mainBox">
+        <div class="guidanceText">ここにダウンロードしたい動画のURLを貼り付けてください</div>
+        <input type="text" placeholder="https://www.youtube.com/watch?v=XXXXXXXX" class="urlTextBox" id="url"></input>
+        <div class="folderPathText">ここに動画を保存したいフォルダのパスを入力してください</div>
+        <input type="text" placeholder="/Users/XXXXX/Desktop/XXXXXXXX" class="folderPathTextBox" id="path"></input>
+        <div class="folderPathExplanation">※保存したいフォルダのパスが入力されなかった場合はデスクトップに保存されます</div>
+        <input type="button" class="downloadStartButton" value="ダウンロードを開始" id="touroku()"></input>
+        <label class="selectExtension">
+            <select name="Extension">
+                <option value="MP4">MP4</option>
+                <option value="MP3">MP3</option>
+            </select>
+        </label>
+        <div class="explanationText">
+        詳細説明：<br>
+        ※ ダウンロードしたい動画がダウンロードしても大丈夫な動画か<br>
+        しっかりと確認してからダウンロードを行なってください<br>
+        ※ ダウンロードした動画の用途についてもしっかりと確認を行なってください
+        </div>
+        <p id="urlBoxErrorText" style="display: none;">※ダウンロードしたい動画のURLが入力されていません</p>
+        <p id="mistakeUrlBoxErrorText" style="display: none;">※入力されたURLが間違っています</p>
+        </div>
+<script src="{% static "/js/style.js" %}"></script>
 </body>
 </html>

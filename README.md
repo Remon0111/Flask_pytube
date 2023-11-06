@@ -1,1 +1,1 @@
-# Flask_pytube
+# これはflaskでYouTubeの動画をダウンロードするためのwebアプリケーションです。
