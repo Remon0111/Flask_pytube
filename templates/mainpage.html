@@ -4,19 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/css/style.css">
+    <script type="text/javascript" src='static/javascript/style.js'></script>
     <title>Flask_YouTubedownloader</title>
 </head>
 <body style="background-color:#ff6d6d;">
     <div class="titleText">YouTube downloader</div>
     <div class="mainBox">
         <div class="guidanceText">ここにダウンロードしたい動画のURLを貼り付けてください</div>
-        <input type="text" placeholder="https://www.youtube.com/watch?v=XXXXXXXX" class="urlTextBox" id="url"></input>
         <div class="folderPathText">ここに動画を保存したいフォルダのパスを入力してください</div>
-        <input type="text" placeholder="/Users/XXXXX/Desktop/XXXXXXXX" class="folderPathTextBox" id="path"></input>
         <div class="folderPathExplanation">※保存したいフォルダのパスが入力されなかった場合はデスクトップに保存されます</div>
-        <button type="button" class="downloadStartButton" onclick="clickButton();">ダウンロードを開始</button>
+        <form action="/mainpage-MP4-post" method="POST">
+            <input name="MP4URLTextBox" type="input" placeholder="https://www.youtube.com/watch?v=XXXXXXXX" class="urlTextBox" value="" id="MP4URLTextBox" style="display:none;"></input>
+            <input name="MP4PathTextBox" type="text" placeholder="/Users/XXXXX/Desktop/XXXXXXXX" class="folderPathTextBox" id="MP4PathTextBox" style="display:none;"></input>
+            <button name="DownloadMP4" class="downloadStartButton" id="MP4download" style="display:none;" type="submit">MP4のダウンロードを開始</button>
+        </form>
+        <form action="/mainpage-MP3-post" method="POST">
+            <input name="MP3URLTextBox" type="input" placeholder="https://www.youtube.com/watch?v=XXXXXXXX" class="urlTextBox" value="" id="MP3URLTextBox" style="display:none;"></input>
+            <input name="MP3PathTextBox" type="text" placeholder="/Users/XXXXX/Desktop/XXXXXXXX" class="folderPathTextBox" id="MP3PathTextBox" style="display:none;"></input>
+            <button name="DownloadMP3" class="downloadStartButton" id="MP3download" style="display:none;" type="submit">MP3のダウンロードを開始</button>
+        </form>
+        <input name="selectURLTextBox" type="input" placeholder="https://www.youtube.com/watch?v=XXXXXXXX" class="urlTextBox" value="" id="selectURLTextBox" style="display:inline;"></input>
+        <input name="selectPathTextBox" type="text" placeholder="/Users/XXXXX/Desktop/XXXXXXXX" class="folderPathTextBox" id ="selectPathTextBox" style="display:inline;"></input>
+        <button class="downloadStartButton" id="selectdownload" style="display:inline;">選択して下さい</button>
         <label class="selectExtension">
-            <select name="Extension">
+            <select name="Extension" id="Extension">
+                <option value="選択" selected>選択</option>
                 <option value="MP4">MP4</option>
                 <option value="MP3">MP3</option>
             </select>
@@ -27,9 +39,7 @@
         しっかりと確認してからダウンロードを行なってください<br>
         ※ ダウンロードした動画の用途についてもしっかりと確認を行なってください
         </div>
-        <p id="urlBoxErrorText" class="errorText" style="display: none;">※ダウンロードしたい動画のURLが入力されていません</p>
-        <p id="mistakeUrlBoxErrorText" class="errorText" style="display: none;">※入力されたURLが間違っています</p>
-        </div>
-<script src="static/javascript/style.js"></script>
+        <div id="selectValue" style="display: inline;"></div>
+    </div>
 </body>
 </html>
