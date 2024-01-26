@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, send_file
 from pytube import YouTube
-from zipfile import ZipFile
 import os
 import shutil
 
