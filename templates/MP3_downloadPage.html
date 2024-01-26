@@ -1,0 +1,22 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/style.css">
+    <script type="text/javascript" src='static/javascript/style.js'></script>
+</head>
+<body style="background-color:#ff6d6d;">
+    <div class="titleText">YouTube downloader</div>
+    <div class="mainBox">
+        <div class="downloadText">{{ downloadText.MP3_download_name }}</div>
+        <audio controls src="static/musicFolder/{{ downloadText.MP3_download_name }}.mp3" type="audio/mp3" class="MP3downloadMovie"></audio>
+        <a href="static/musicFolder/{{ downloadText.MP3_download_name }}.mp3" download>
+            <button class="downloadStartButtonComplete">動画のダウンロードを開始</button>
+        </a>
+        <form action="/completeDownload" methods="POST">
+            <button class="backButton">選択ページへ戻る</button>
+        </form>
+    </div>
+</body>
+</html>

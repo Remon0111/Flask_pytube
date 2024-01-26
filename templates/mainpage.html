@@ -11,21 +11,21 @@
     <div class="titleText">YouTube downloader</div>
     <div class="mainBox">
         <div class="guidanceText">ここにダウンロードしたい動画のURLを貼り付けてください</div>
-        <div class="folderPathText">ここに動画を保存したいフォルダのパスを入力してください</div>
-        <div class="folderPathExplanation">※保存したいフォルダのパスが入力されなかった場合はデスクトップに保存されます</div>
         <form action="/mainpage-MP4-post" method="POST">
             <input name="MP4URLTextBox" type="input" placeholder="https://www.youtube.com/watch?v=XXXXXXXX" class="urlTextBox" value="" id="MP4URLTextBox" style="display:none;"></input>
-            <input name="MP4PathTextBox" type="text" placeholder="/Users/XXXXX/Desktop/XXXXXXXX" class="folderPathTextBox" id="MP4PathTextBox" style="display:none;"></input>
-            <button name="DownloadMP4" class="downloadStartButton" id="MP4download" style="display:none;" type="submit">MP4のダウンロードを開始</button>
+            <button name="DownloadMP4" class="downloadStartButton" id="MP4download" style="display:none;" type="submit">MP4のダウンロード</button>
         </form>
         <form action="/mainpage-MP3-post" method="POST">
             <input name="MP3URLTextBox" type="input" placeholder="https://www.youtube.com/watch?v=XXXXXXXX" class="urlTextBox" value="" id="MP3URLTextBox" style="display:none;"></input>
-            <input name="MP3PathTextBox" type="text" placeholder="/Users/XXXXX/Desktop/XXXXXXXX" class="folderPathTextBox" id="MP3PathTextBox" style="display:none;"></input>
-            <button name="DownloadMP3" class="downloadStartButton" id="MP3download" style="display:none;" type="submit">MP3のダウンロードを開始</button>
+            <button name="DownloadMP3" class="downloadStartButton" id="MP3download" style="display:none;" type="submit">MP3のダウンロード</button>
+        </form>
+        <form action="/history" method="get">
+            <button type=submit class="historyButton">過去にダウンロードした動画はこちらから</button>
         </form>
         <input name="selectURLTextBox" type="input" placeholder="https://www.youtube.com/watch?v=XXXXXXXX" class="urlTextBox" value="" id="selectURLTextBox" style="display:inline;"></input>
-        <input name="selectPathTextBox" type="text" placeholder="/Users/XXXXX/Desktop/XXXXXXXX" class="folderPathTextBox" id ="selectPathTextBox" style="display:inline;"></input>
         <button class="downloadStartButton" id="selectdownload" style="display:inline;">選択して下さい</button>
+        <div class="ErrorText" id="downloadErrorText" style="display:none;">このURLでは動画をダウンロードできません</div>
+        <div>
         <label class="selectExtension">
             <select name="Extension" id="Extension">
                 <option value="選択" selected>選択</option>
