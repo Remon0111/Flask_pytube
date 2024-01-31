@@ -28,11 +28,23 @@ def MP3():
     new_folder_path = os.path.expanduser('./static/musicFolder')
     if (not os.path.exists(new_folder_path)):
         os.mkdir(new_folder_path)
-    global video
-    video = YouTube(reqMP3)
-    streams =  video.streams.filter(only_audio=True).first()
-    streams.download(os.path.expanduser("./static/musicFolder"), filename=f"{video.title}.mp3")
+    global MP3_video
+    MP3_video = YouTube(reqMP3)
+    streams =  MP3_video.streams.filter(only_audio=True).first()
+    streams.download(os.path.expanduser("./static/musicFolder"), filename=f"{MP3_video.title}.mp3")
     return redirect("/MP3_downloadPage")
+
+@app.route("/mainpage-WAV-post", methods=["POST", "GET"])
+def WAV():
+    reqWAV = request.form["WAVURLTextBox"]
+    new_folder_path = os.path.expanduser('./static/musicFolder')
+    if (not os.path.exists(new_folder_path)):
+        os.mkdir(new_folder_path)
+    global WAV_video
+    WAV_video = YouTube(reqWAV)
+    streams =  WAV_video.streams.filter(only_audio=True).first()
+    streams.download(os.path.expanduser("./static/musicFolder"), filename=f"{WAV_video.title}.wav")
+    return redirect("/WAV_downloadPage")
 
 @app.route("/MP4_downloadPage", methods=["GET", "POST"])
 def MP4_downloadPage():
@@ -45,9 +57,18 @@ def MP4_downloadPage():
 @app.route("/MP3_downloadPage", methods=["GET", "POST"])
 def MP3_downloadPage():
     download_Text_MP3 = {
-        "MP3_download_name": f"{video.title}"
+        "MP3_download_name": f"{MP3_video.title}",
+        "MP3_thumbnail_url": f"{MP3_video.thumbnail_url}",
     }
     return render_template("MP3_downloadPage.html", downloadText = download_Text_MP3)
+
+@app.route("/WAV_downloadPage", methods=["GET", "POST"])
+def WAV_downloadPage():
+    download_Text_WAV = {
+        "WAV_download_name": f"{WAV_video.title}",
+        "WAV_thumbnail_url": f"{WAV_video.thumbnail_url}",
+    }
+    return render_template("WAV_downloadPage.html", downloadText = download_Text_WAV)
 
 @app.route("/completeDownload", methods=["GET", "POST"])
 def completeDownload():

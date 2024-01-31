@@ -19,6 +19,10 @@
             <input name="MP3URLTextBox" type="input" placeholder="https://www.youtube.com/watch?v=XXXXXXXX" class="urlTextBox" value="" id="MP3URLTextBox" style="display:none;"></input>
             <button name="DownloadMP3" class="downloadStartButton" id="MP3download" style="display:none;" type="submit">MP3のダウンロード</button>
         </form>
+        <form action="/mainpage-WAV-post" method="POST">
+            <input name="WAVURLTextBox" type="input" placeholder="https://www.youtube.com/watch?v=XXXXXXXX" class="urlTextBox" value="" id="WAVURLTextBox" style="display:none;"></input>
+            <button name="DownloadWAV" class="downloadStartButton" id="WAVdownload" style="display:none;" type="submit">WAVのダウンロード</button>
+        </form>
         <form action="/history" method="get">
             <button type=submit class="historyButton">過去にダウンロードした動画はこちらから</button>
         </form>
@@ -31,6 +35,7 @@
                 <option value="選択" selected>選択</option>
                 <option value="MP4">MP4</option>
                 <option value="MP3">MP3</option>
+                <option value="WAV">WAV</option>
             </select>
         </label>
         <div class="explanationText">

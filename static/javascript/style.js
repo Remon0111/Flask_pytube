@@ -36,6 +36,20 @@ window.onload = function() {
         }
     });
 
+    const WAV_input = document.getElementById("WAVURLTextBox");
+    const WAV_download = document.getElementById("WAVdownload");
+
+    WAV_input.addEventListener("change", function() {
+        console.log(MP4_input.value)
+        if (WAV_input.value.startsWith("https") && WAV_input.value.includes("youtu.be/") || WAV_input.value.startsWith("https") && WAV_input.value.includes("www.youtube.com/") || WAV_input.value.startsWith("https") && WAV_input.value.includes("music.youtube.com/")) {
+            WAV_download.disabled = false;
+            ErrorText.style.display = "none";
+        } else {
+            WAV_download.disabled = true;
+            ErrorText.style.display = "inline";
+        }
+    });
+
 }
 
 function changeCategory() {
@@ -46,6 +60,8 @@ function changeCategory() {
     let MP4URLTextBox = document.getElementById("MP4URLTextBox");
     let MP3downloadButton = document.getElementById("MP3download");
     let MP3URLTextBox = document.getElementById("MP3URLTextBox");
+    let WAVdownloadButton = document.getElementById("WAVdownload");
+    let WAVURLTextBox = document.getElementById("WAVURLTextBox");
     if (downloadExtension.value == "選択") {
         selectdownload.style.display = "inline";
         selectURLTextBox.style.display = "inline";
@@ -53,6 +69,8 @@ function changeCategory() {
         MP4URLTextBox.style.display = "none";
         MP3downloadButton.style.display = "none";
         MP3URLTextBox.style.display = "none";
+        WAVdownloadButton.style.display = "none";
+        WAVURLTextBox.style.display = "none";
     }else if (downloadExtension.value == "MP4"){
         selectdownload.style.display = "none";
         selectURLTextBox.style.display = "none";
@@ -60,6 +78,8 @@ function changeCategory() {
         MP4URLTextBox.style.display = "inline";
         MP3downloadButton.style.display = "none";
         MP3URLTextBox.style.display = "none";
+        WAVdownloadButton.style.display = "none";
+        WAVURLTextBox.style.display = "none";
     }else if (downloadExtension.value == "MP3"){
         selectdownload.style.display = "none";
         selectURLTextBox.style.display = "none";
@@ -67,5 +87,16 @@ function changeCategory() {
         MP4URLTextBox.style.display = "none";
         MP3downloadButton.style.display = "inline";
         MP3URLTextBox.style.display = "inline";
+        WAVdownloadButton.style.display = "none";
+        WAVURLTextBox.style.display = "none";
+    }else if (downloadExtension.value == "WAV"){
+        selectdownload.style.display = "none";
+        selectURLTextBox.style.display = "none";
+        MP4downloadButton.style.display = "none";
+        MP4URLTextBox.style.display = "none";
+        MP3downloadButton.style.display = "none";
+        MP3URLTextBox.style.display = "none";
+        WAVdownloadButton.style.display = "inline";
+        WAVURLTextBox.style.display = "inline";
     }
 }
