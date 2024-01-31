@@ -10,11 +10,11 @@
     <div class="titleText">YouTube downloader</div>
     <div class="mainBox">
         <center>
-            <img src="{{ downloadText.MP3_thumbnail_url }}" width="360px" height="230px">
+            <img src="{{ downloadText.WAV_thumbnail_url }}" width="380px" height="230px">
         </center>
-            <div class="downloadText">{{ downloadText.MP3_download_name }}</div>
-        <audio controls src="static/musicFolder/{{ downloadText.MP3_download_name }}.mp3" type="audio/mp3" class="MP3downloadMovie"></audio>
-        <a href="static/musicFolder/{{ downloadText.MP3_download_name }}.mp3" download>
+        <div class="downloadText">{{ downloadText.WAV_download_name }}</div>
+        <audio controls src="static/musicFolder/{{ downloadText.WAV_download_name }}.wav" type="audio/wav" class="WAVdownloadMovie"></audio>
+        <a href="static/musicFolder/{{ downloadText.WAV_download_name }}.wav" download>
             <button class="downloadStartButtonComplete">動画のダウンロードを開始</button>
         </a>
         <form action="/completeDownload" methods="POST">
